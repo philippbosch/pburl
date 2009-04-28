@@ -1,5 +1,5 @@
 from django.shortcuts import render_to_response, get_object_or_404
-from django.http import HttpResponse, HttpResponsePermanentRedirect
+from django.http import HttpResponse, HttpResponseRedirect, HttpResponsePermanentRedirect
 
 from links.models import Link, LinkClick
 
@@ -14,6 +14,6 @@ def lookup(request, token):
     LinkClick.objects.create(link=link, ip=request.META['REMOTE_ADDR'], referrer=referrer)
     
     return HttpResponsePermanentRedirect(link.url)
-    
-def test(request):
-    return HttpResponse('<a href="/1">Test me!</a>')
+
+def handler404(request):
+    return HttpResponseRedirect('http://www.philippbosch.de/')

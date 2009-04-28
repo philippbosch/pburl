@@ -135,4 +135,7 @@ FORCE_SCRIPT_NAME = ''
 
 
 
-from settings_local import *
+try:
+    execfile(os.path.join(os.path.dirname(__file__), "settings_local.py"))
+except IOError:
+    pass

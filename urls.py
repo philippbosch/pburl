@@ -7,3 +7,5 @@ urlpatterns = patterns('',
     (r'^admin/', include(admin.site.urls)),
     (r'^', include('links.urls')),
 )
+
+handler404 = 'links.views.handler404'
